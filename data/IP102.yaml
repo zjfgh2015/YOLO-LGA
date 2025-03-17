@@ -1,0 +1,40 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# COCO 2017 dataset http://cocodataset.org by Microsoft
+# Example usage: python train.py --data coco.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── coco  ← downloads here (20.1 GB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../datasets/IP102  # dataset root dir
+train: ../datasets/IP102/train.txt  # train images (relative to 'path') 118287 images
+val: ../datasets/IP102/val.txt # val images (relative to 'path') 5000 images
+test: ../datasets/IP102/test.txt  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+
+# Classes
+nc: 97  # number of classes
+names: ['1  rice leaf roller', '2  rice leaf caterpillar', '3  paddy stem maggot', '4  asiatic rice borer', '5  yellow rice borer',
+        '6  rice gall midge', '7  Rice Stemfly', '8  brown plant hopper', '9  white backed plant hopper', '10 small brown plant hopper',
+        '11 rice water weevil', '12 rice leafhopper', '13 grain spreader thrips', '14 rice shell pest', '15 grub', '16 mole cricket',
+        '17 wireworm', '18 white margined moth', '19 black cutworm', '20 large cutworm', '21 yellow cutworm', '22 red spider',
+        '23 corn borer', '24 army worm', '25 aphids', '26 Potosiabre vitarsis', '27 peach borer', '28 english grain aphid',
+        '29 green bug', '30 bird cherry-oataphid', '31 wheat blossom midge', '32 penthaleus major', '33 longlegged spider mite',
+        '34 wheat phloeothrips', '35 wheat sawfly', '36 cerodonta denticornis', '37 beet fly', '38 flea beetle', '39 cabbage army worm',
+        '40 beet army worm', '41 Beet spot flies', '42 meadow moth', '43 beet weevil', '44 sericaorient alismots chulsky',
+        '45 alfalfa weevil', '46 flax budworm', '47 alfalfa plant bug', '48 tarnished plant bug', '49 Locustoidea', '50 lytta polita',
+        '51 legume blister beetle', '52 blister beetle', '53 therioaphis maculata Buckton', '54 odontothrips loti', '55 Thrips',
+        '56 alfalfa seed chalcid', '57 Pieris canidia', '58 Apolygus lucorum', '59 Limacodidae', '62 Brevipoalpus lewisi McGregor',
+        '63 oides decempunctata', '65 Pseudococcus comstocki Kuwana', '66 parathrene regalis', '67 Ampelophaga',
+        '68 Lycorma delicatula', '69  Xylotrechus', '70  Cicadella viridis', '71  Miridae', '72  Trialeurodes vaporariorum',
+        '73  Erythroneura apicalis', '74  Papilio xuthus', '75  Panonchus citri McGregor', '77  Icerya purchasi Maskell',
+        '78  Unaspis yanonensis', '79  Ceroplastes rubens', '80  Chrysomphalus aonidum', '82  Nipaecoccus vastalor',
+        '83  Aleurocanthus spiniferus', '84  Tetradacus c Bactrocera minax', '85  Dacus dorsalis(Hendel)', '86  Bactrocera tsuneonis',
+        '87  Prodenia litura', '88  Adristyrannus', '89  Phyllocnistis citrella Stainton', '90  Toxoptera citricidus',
+        '91  Toxoptera aurantii', '92  Aphis citricola Vander Goot', '93  Scirtothrips dorsalis Hood', '94  Dasineura sp',
+        '95  Lawana imitata Melichar', '96  Salurnis marginella Guerr', '97  Deporaus marginatus Pascoe', '98  Chlumetia transversa',
+        '99  Mango flat beak leafhopper', '100 Rhytidodera bowrinii white', '101 Sternochetus frigidus', '102 Cicadellidae']
+  # class names
+
+
