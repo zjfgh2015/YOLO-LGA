@@ -1,0 +1,45 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+
+# Parameters
+nc: 97  # number of classes
+nb: 6   # number of CT blocks in backbone
+ct_depths: 10
+anchors:
+  - [12,16, 19,36, 40,28]  # P3/8
+  - [36,75, 76,55, 72,146]  # P4/16
+  - [142,110, 192,243, 459,401]   # P5/32
+
+detect_channels:
+  [128,256,512]
+# YOLOv5 v6.0 backbone
+backbone:
+  # [module, n ,args]
+  [[Conv, [3, 32, 6, 2, 2]],       # 0-P1/2  ch_in, ch_out, kernel, stride, padding
+   [Conv, [32, 64, 3, 2]],         # 1-P2/4
+   [C3, [64, 64, 1]],              # c1,c2,n
+   [C3, [64, 64, 1]],
+   [Conv, [64, 128, 3, 2]],
+   [LGA, [128, 64, 80,4,False]],    # dim, input_resolution, num_heads, save
+   [LGA, [128, 64, 80,4,True]],     # save 80,80,128
+   [Conv, [128, 256, 3, 2]],
+   [LGA, [256, 128, 40, 8, False]],
+   [LGA, [256, 128, 40, 8, False]],
+   [LGA, [256, 128, 40, 8, True]],  # save 40,40,256
+   [Conv, [256, 512, 3, 2]],
+   [LGA, [512, 256, 20, 16, False]],
+   [SPPCSPC, [512,512]],
+  ]
+
+
+head:
+  [[reduce, [512, 256, 1, 1]],   # aux_conv,reduce the channels
+   [reduce, [512, 256, 1, 1]],
+   [reduce, [256, 128, 1, 1]],
+   [reduce, [256, 128, 1, 1]],
+   [Conv, [128, 128, 3, 2]],      # downsample
+   [Conv, [256, 256, 3, 2]],
+   [LGA, [256, 128, 40, 8, False]],
+   [LGA, [128, 64, 80, 4, False]],
+   [LGA, [256, 128, 40, 8, False]],
+   [LGA, [512, 256, 20, 16, False]],
+  ]
