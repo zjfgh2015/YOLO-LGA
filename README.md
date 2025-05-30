@@ -17,12 +17,6 @@ pip install requirements.txt
 ## Datasets
 
 - For the IP102 datasets, please refer to the GitHub repository: [GitHub Repository](https://github.com/xpwu95/IP102)
-
-## Pretrained Checkpoints
-
--The final model weights file path is:
-```bash
-runs/train/exp/weights/best.pt
-```
+  
 ## Citation
 If you use our framework in your research, please cite our work. 
